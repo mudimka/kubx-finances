@@ -1,0 +1,20 @@
+<div class="sp-filter">
+    Элемент видео:
+    <select class="sp-select-iblock" style="display: none;">
+        {{~it.iblocks :item:index}}
+        <option {{?item.id== it.iblock_id}}selected="selected" {{?}} value="{{!item.id}}">{{!item.title}}</option>
+        {{~}}
+    </select>
+    {{?it.iblock_id}}
+    <span class="sp-x-btn sp-open" style="margin-left: 10px">Добавить</span>
+    {{?}}
+</div>
+
+<div class="sp-elements">
+    {{~it.elements :item:index}}
+    <div data-id="{{!item.id}}" class="sp-item" style="display: flex; justify-content: space-between">
+        {{!item.id}} - {{!item.title}}
+        <button type="button" data-id="{{!item.id}}" class="delete-item">x</button>
+    </div>
+    {{~}}
+</div>

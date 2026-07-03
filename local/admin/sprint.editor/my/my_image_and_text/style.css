@@ -1,0 +1,96 @@
+.sp-block-my_image_and_text .sp-rel {
+    position: relative;
+}
+
+.sp-block-my_image_and_text .sp-result {
+    min-height: 210px;
+    overflow: hidden;
+    background: #eee;
+    text-align: center;
+}
+
+.sp-block-my_image_and_text .sp-result img {
+    display: block;
+    margin: 0 auto;
+    max-width: 98%;
+    min-height: 98%;
+}
+
+.sp-rel .sp-file {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: center;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 6px;
+    min-width: 18px;
+    line-height: 16px;
+
+    position: relative;
+}
+
+
+.sp-rel .sp-file input[type=file] {
+    cursor: pointer;
+    direction: ltr;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.sp-block-my_image_and_text .sp-source .sp-download-url {
+    width: 250px;
+}
+
+.sp-block-my_image_and_text .sp-panel {
+    display: none;
+}
+
+.sp-block-my_image_and_text.sp-show .sp-panel {
+    display: block;
+}
+
+.sp-block-my_image_and_text.sp-show .sp-delete-btn {
+    display: none;
+}
+
+.sp-block-my_image_and_text .sp-source {
+    background: #FFEBC1;
+}
+
+
+.sp-block-my_image_and_text .sp-fields {
+    padding: 10px;
+}
+
+.sp-delete-btn{
+    display: block;
+    text-align: start;
+    background: #ddd;
+    padding: 5px;
+}
+
+.sp-block-my_image_and_text .trumbowyg-textarea {
+    min-height: 70px;
+}
+
+.sp-block-my_image_and_text .trumbowyg-editor {
+    min-height: 70px;
+    padding: 5px;
+}
+
+.sp-block-my_image_and_text .trumbowyg-box {
+    min-height: 70px;
+}

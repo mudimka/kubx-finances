@@ -1,0 +1,30 @@
+{
+  "title": "Цитата",
+  "sort": "30",
+  "js": [
+    "/bitrix/admin/sprint.editor/assets/trumbowyg/trumbowyg.js",
+    "/bitrix/admin/sprint.editor/assets/trumbowyg/plugins/mycss/trumbowyg.mycss.js",
+    "/bitrix/admin/sprint.editor/assets/trumbowyg/plugins/specialchars/trumbowyg.specialchars.js",
+    "/bitrix/admin/sprint.editor/assets/jquery.file-upload-9/vendor/jquery.ui.widget.js",
+    "/bitrix/admin/sprint.editor/assets/jquery.file-upload-9/jquery.iframe-transport.js",
+    "/bitrix/admin/sprint.editor/assets/jquery.file-upload-9/jquery.fileupload.js"
+  ],
+  "css": [
+    "/bitrix/admin/sprint.editor/assets/trumbowyg/ui/trumbowyg.css",
+    "/bitrix/admin/sprint.editor/assets/trumbowyg/plugins/mycss/ui/trumbowyg.mycss.css",
+    "/bitrix/admin/sprint.editor/assets/trumbowyg/plugins/specialchars/ui/trumbowyg.specialchars.css"
+  ],
+  "isUtf8": {
+    "js": [
+      "/bitrix/admin/sprint.editor/assets/trumbowyg/langs/ru.min.js"
+    ]
+  },
+  "isWin1251": {
+    "js": [
+      "/bitrix/admin/sprint.editor/assets/trumbowyg/langs/ru.windows-1251.js"
+    ]
+  },
+  "templates": [
+    "image.html"
+  ]
+}

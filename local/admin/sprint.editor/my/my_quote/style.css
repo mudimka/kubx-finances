@@ -1,0 +1,65 @@
+.sp-block-my_quote .trumbowyg-textarea {
+    min-height: 70px;
+}
+
+.sp-block-my_quote .trumbowyg-editor {
+    min-height: 70px;
+    padding: 5px;
+}
+
+.sp-block-my_quote .trumbowyg-box {
+    min-height: 70px;
+}
+
+.sp-rel {
+   padding-top: 10px;
+}
+
+.sp-block-my_quote .sp-result {
+    min-height: 210px;
+    overflow: hidden;
+    background: #eee;
+    padding: 10px;
+}
+
+.sp-block-my_quote .sp-result img {
+    display: block;
+    margin: 0 auto;
+    max-width: 98%;
+    height: 210px;
+}
+
+.sp-block-my_quote .sp-edit {
+    background: #ddd;
+    padding: 10px;
+}
+
+.sp-block-my_quote .sp-source {
+    background: #FFEBC1;
+    padding: 10px;
+}
+
+.sp-block-my_quote .sp-download-url {
+    width: 50%
+}
+
+.sp-block-my_quote .sp-item-text {
+    width: 50%
+}
+
+
+.sp-block-my_quote .sp-source {
+    display: none;
+}
+
+.sp-block-my_quote .sp-edit {
+    display: block;
+}
+
+.sp-block-my_quote.sp-show .sp-source {
+    display: block;
+}
+
+.sp-block-my_quote.sp-show .sp-edit {
+    display: none;
+}

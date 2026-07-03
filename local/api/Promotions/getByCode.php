@@ -1,0 +1,45 @@
+<?php
+header('Content-Type: application/json');
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php';
+
+if (!\Bitrix\Main\Loader::includeModule('iblock')) {
+    echo json_encode(['error' => 'Модуль инфоблоков не загружен']);
+    exit;
+}
+
+$code = $_GET['code'] ?? '';
+if (empty($code)) {
+    echo json_encode(['error' => 'Не передан параметр code']);
+    exit;
+}
+
+$iblockId = \Legacy\General\Constants::IB_PROMOTIONS;
+
+$res = CIBlock::GetList([], ['ID' => $iblockId]);
+if (!$res->SelectedRowsCount()) {
+    echo json_encode(['error' => 'Инфоблок с ID ' . $iblockId . ' не найден']);
+    exit;
+}
+
+$arSelect = ['ID', 'NAME', 'CODE', 'PREVIEW_TEXT', 'DETAIL_TEXT'];
+$arFilter = ['IBLOCK_ID' => $iblockId, 'CODE' => $code, 'ACTIVE' => 'Y'];
+$res = CIBlockElement::GetList([], $arFilter, false, false, $arSelect);
+
+$item = null;
+if ($ob = $res->GetNextElement()) {
+    $arFields = $ob->GetFields();
+    $item = [
+        'id' => $arFields['ID'],
+        'name' => $arFields['NAME'],
+        'code' => $arFields['CODE'],
+        'description' => $arFields['PREVIEW_TEXT'],
+        'detail' => $arFields['DETAIL_TEXT'],
+    ];
+}
+
+if ($item) {
+    echo json_encode(['status' => 'ok', 'item' => $item]);
+} else {
+    echo json_encode(['status' => 'error', 'message' => 'Элемент с кодом ' . $code . ' не найден']);
+}
