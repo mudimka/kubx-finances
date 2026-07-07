@@ -38,18 +38,12 @@ class Finances
     {
         global $USER;
 
-        $page = (int) ($arRequest['page'] ?? 1);
-        $limit = (int) ($arRequest['limit'] ?? 10);
-        $params = [
-            'order' => ['UF_DATE_UPDATE' => 'DESC'],
-            'limit' => $limit,
-            'offset' => ($page - 1) * $limit,
-            'filter' => ['UF_CONTRAGENT' => $USER->GetID()],
-        ];
-
         $items = Entity::getInstance()->getList(
             Constants::HLBLOCK_B_HL_FINANCES,
-            $params
+            [
+                'order' => ['UF_DATE_UPDATE' => 'DESC'],
+                'filter' => ['UF_CONTRAGENT' => $USER->GetID()],
+            ]
         );
 
         return [

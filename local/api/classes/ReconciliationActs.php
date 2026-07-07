@@ -34,27 +34,33 @@ class ReconciliationActs
         $page = (int) ($arRequest['page'] ?? 1);
         $limit = (int) ($arRequest['limit'] ?? 10);
 
-        $params = [
-            'order' => ['UF_DATE_FORMED' => 'DESC'],
-            'limit' => $limit,
-            'offset' => ($page - 1) * $limit,
-            'filter' => [
-                'UF_CONTRAGENT' => $USER->GetID(),
-            ],
-        ];
+        $filter = ['UF_CONTRAGENT' => $USER->GetID()];
 
         if (!empty($arRequest['contract'])) {
-            $params['filter']['UF_CONTRACT_NUMBER'] = $arRequest['contract'];
+            $filter['UF_CONTRACT_NUMBER'] = $arRequest['contract'];
         }
+
+        $allItems = Entity::getInstance()->getList(
+            Constants::HLBLOCK_B_HL_RECONCILIATION_ACTS,
+            ['filter' => $filter]
+        );
+        $total = count($allItems ?? []);
+
+        $orderDir = strtoupper($arRequest['order'] ?? 'DESC') === 'ASC' ? 'ASC' : 'DESC';
 
         $items = Entity::getInstance()->getList(
             Constants::HLBLOCK_B_HL_RECONCILIATION_ACTS,
-            $params
+            [
+                'order' => ['UF_DATE_FORMED' => $orderDir],
+                'limit' => $limit,
+                'offset' => ($page - 1) * $limit,
+                'filter' => $filter,
+            ]
         );
 
         return [
-            'count' => count($items),
-            'items' => self::processData($items),
+            'count' => $total,
+            'items' => self::processData($items ?? []),
         ];
     }
 }
