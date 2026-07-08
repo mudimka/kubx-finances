@@ -38,6 +38,10 @@ class Finances
     {
         global $USER;
 
+        if (!$USER->IsAuthorized()) {
+            throw new \Exception('Необходима авторизация.');
+        }
+
         $items = Entity::getInstance()->getList(
             Constants::HLBLOCK_B_HL_FINANCES,
             [

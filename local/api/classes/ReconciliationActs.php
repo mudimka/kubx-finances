@@ -31,6 +31,10 @@ class ReconciliationActs
     {
         global $USER;
 
+        if (!$USER->IsAuthorized()) {
+            throw new \Exception('Необходима авторизация.');
+        }
+
         $page = (int) ($arRequest['page'] ?? 1);
         $limit = (int) ($arRequest['limit'] ?? 10);
 
